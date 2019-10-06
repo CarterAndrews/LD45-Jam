@@ -25,7 +25,12 @@ public class Try1 : MonoBehaviour
     public void DisplayMoney(){
         Displaymoney.text = moneycount.ToString();
     }
-
+    public void addMoney(int amount)
+    {
+        moneycount += amount;
+        moneyNowText.text = "You now have" + moneycount.ToString();
+        DisplayMoney();
+    }
      public void OnMouseDown()
     {
         if (moneycount < buyingprice){
@@ -36,6 +41,7 @@ public class Try1 : MonoBehaviour
         if(moneycount > buyingprice){
             moneycount = -buyingprice;
             moneyNowText.text = "You now have" + moneycount.ToString();
+            DisplayMoney();
         }
     }
 }
